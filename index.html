@@ -1,1 +1,135 @@
-Hello World
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenghua Zhang | 个人门户</title>
+    <style>
+        /* 全局基础样式 - 极简科技风 */
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); }
+        a { text-decoration: none; color: var(--primary-color); }
+        
+        /* 导航栏 */
+        header { background: var(--card-bg); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;}
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--text-color); }
+        nav a { margin-left: 2rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+
+        /* 核心版块容器 */
+        section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+        h2.section-title { font-size: 2rem; margin-bottom: 2rem; border-bottom: 3px solid var(--primary-color); display: inline-block; padding-bottom: 0.5rem; }
+
+        /* Hero (首屏个人简介) */
+        .hero { text-align: center; padding: 8rem 5% 4rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem; }
+        
+        /* 项目展示网格 (Grid) */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--card-bg); border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-bottom: 1rem; font-size: 1.3rem; }
+        .tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;}
+
+        /* 博客列表 */
+        .blog-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .blog-item { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color); }
+        .blog-date { font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem; display: block; }
+
+        /* 页脚 */
+        footer { text-align: center; padding: 2rem; background: #1e293b; color: #fff; margin-top: 3rem; }
+        footer a { color: #93c5fd; }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="logo">Fenghua Zhang</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#blog">Blog</a>
+        </nav>
+    </header>
+
+    <!-- 首屏个人简介 -->
+    <section class="hero" id="about">
+        <h1>Hi, I'm 张峰华</h1>
+        <p>Scientific Computing MPhil @ Cambridge | 专注于计算流体力学 (CFD)、AI4S (SciML/PINNs) 与多体动力学控制。</p>
+        <p style="font-size: 1rem; margin-top: 1rem;">除了敲代码和推导公式，也热爱健身与音乐。</p>
+    </section>
+
+    <!-- 工程项目模块 -->
+    <section id="projects">
+        <h2 class="section-title">Engineering Projects</h2>
+        <div class="grid-container">
+            <!-- 项目卡片 1 -->
+            <div class="card">
+                <h3>气动数据自动生成 Pipeline</h3>
+                <p>在 COMAC AI 创新中心担任 Research Intern 期间开发。基于 OpenFOAM 构建了高度自动化的流体力学仿真数据生成流水线，为后续的深度学习模型训练提供高保真数据集。</p>
+                <div class="tags">
+                    <span class="tag">OpenFOAM</span>
+                    <span class="tag">CFD</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+            
+            <!-- 项目卡片 2 -->
+            <div class="card">
+                <h3>帆船自主导航与动力学控制</h3>
+                <p>在伯克利访问期间主导搭建的 4 自由度 (4-DOF) 帆船多体动力学模型。结合 Polar Diagram 极线图系统，在 MATLAB/Simulink 环境下设计并验证了自主导航控制器。</p>
+                <div class="tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Simulink</span>
+                    <span class="tag">Dynamics</span>
+                </div>
+            </div>
+
+            <!-- 项目卡片 3 -->
+            <div class="card">
+                <h3>管道机器人 3D 路径规划</h3>
+                <p>针对管道内复杂环境，开发基于 3D Gaussian Splatting 的环境重建系统，并在 ROS 环境下实现了基于 RRT 算法的机器人路径规划。</p>
+                <div class="tags">
+                    <span class="tag">ROS</span>
+                    <span class="tag">RRT</span>
+                    <span class="tag">3D Gaussian Splatting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术博客模块 -->
+    <section id="blog">
+        <h2 class="section-title">Recent Notes</h2>
+        <div class="blog-list">
+            <div class="blog-item">
+                <span class="blog-date">2026-04-15</span>
+                <h3><a href="#">薄壁件镜像铣削中的稳定性叶瓣图 (Stability Lobes) 分析与 MATLAB 实现</a></h3>
+                <p>探讨在加工过程中如何通过数值仿真优化铣削参数，规避颤振现象，记录了毕业设计中的核心数值推导过程。</p>
+            </div>
+            <div class="blog-item">
+                <span class="blog-date">2026-02-28</span>
+                <h3><a href="#">AI for Science: 浅谈 Physics-Informed Neural Networks (PINNs) 在流场预测中的潜力</a></h3>
+                <p>结合最近调研 PhysicsX 等硬科技初创公司的感悟，探讨如何将 Navier-Stokes 方程作为物理软约束融入神经网络训练中。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2026 Fenghua Zhang. All rights reserved.</p>
+        <p>Find me on <a href="https://github.com/Fenghua714" target="_blank">GitHub</a></p>
+    </footer>
+
+</body>
+</html>
